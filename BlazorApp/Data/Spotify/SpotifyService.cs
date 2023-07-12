@@ -14,7 +14,7 @@ namespace BlazorApp.Data.Spotify
         {
             _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", accessToken);
 
-            var response = await _httpClient.GetAsync($"browse/me/top/?type={type}$time_range={timeRange}");
+            var response = await _httpClient.GetAsync($"browse/me/top/$type={type}$time_range={timeRange}");
 
             response.EnsureSuccessStatusCode();
 
