@@ -1,4 +1,6 @@
-﻿@inject button button
+﻿@page "/Calculate"
+@using BlazorApp.Data
+
 <PageTitle>Calculator</PageTitle>
 
 <h3>Calculator</h3>
@@ -13,28 +15,25 @@
         </thead>
         <tbody>
             <tr>
-                <button @onclick="7">printNumber</button>
-                <button @onclick="8">printNumber</button>
-                <button @onclick="9">printNumber</button>
+                <td> 7 </td>
+                <td> 8 </td>
+                <td> 9 </td>            
             </tr>
             <tr>
-                <button @onclick="4">printNumber</button>
-                <button @onclick="5">printNumber</button>
-                <button @onclick="6">printNumber</button>
+                <td> 4 </td>               
+                <td> 5 </td>               
+                <td> 6 </td>            
             </tr>
             <tr>
-                <button @onclick="1">printNumber</button>
-                <button @onclick="2">printNumber</button>
-                <button @onclick="3">printNumber</button>
-            </tr>
+                <td> 1 </td>              
+                <td> 2 </td>
+                <td> 3 </td>            
+           </tr>
         </tbody>
     </table>
 </main>
 
 
 @code {
-    private void printNumber()
-    {
-        
-    }
+
 }

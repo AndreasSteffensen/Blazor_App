@@ -1,0 +1,55 @@
+﻿@page "/Spotify"
+
+<PageTitle>Spotify</PageTitle>
+
+@using BlazorApp.Data.Spotify
+@inject Song Song
+
+<h1>Spotify</h1>
+
+<p>	Hello here you can get your to 10 songs of the month</p>
+
+<button class="btn btn_primary" @onclick="showTopTen">Top 10</button>
+
+<button class="btn btn_primary" @onclick="addSong">add song</button>
+
+ @if (topTen)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Listens</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Song song in songs)
+            {
+                <tr>
+                    <td>@song.Listens</td>
+                    <td>@song.Name</td>
+                </tr>  
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private bool topTen;
+    private List<Song> songs = new List<Song>();
+    private readonly SpotifyController controller = new SpotifyController();
+
+    private void showTopTen()
+    {
+        if (songs is not null)
+        {
+            topTen = true;
+            controller.Index();
+        }
+    }
+
+    private void addSong()
+    {
+        songs.Add(new Song(23, "Good song"));
+    }
+}
